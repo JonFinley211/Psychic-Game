@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+<head>
+        <!-- You're going to make a game just like the one in the video. Essentially, the app randomly picks a letter
+            
+            , and the user has to guess which letter the app chose.
+             Put the following text on your page:
+        Guess what letter I'm thinking of
+        Wins: (# of times the user has guessed the letter correctly)
+        Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)
+        Guesses Left: (# of guesses left. This will update)
+        Your Guesses So Far: (the specific letters that the user typed. Display these until the user either wins or loses.)
+        When the player wins, increase the Wins counter and start the game over again (without refreshing the page).
+        When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins). -->
+
+    <title>Document</title>
+</head>
+<header>
+    
+        <h1>"Guess what letter I'm thinking of?"
+        
+            </h1>
+</header>
+<body>
+        <script type="text/javascript">// VARIABLES
+            // =======================================================================================
+      
+            // Various Arrays
+        
+            // var alpha = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var her = "abcdefghijklmnopqrstuvwxyz";
+var gamestats = {
+         wins: 0,
+         losses: 0,
+         attemps: 10
+}
+var randletter = her[Math.floor(Math.random() * her.length)];
+    
+    
+console.log(randletter);
+// for (var i = 0; i < letters.length; i++) {
+//         console.log("I love " + letters[i]);}
+        
+//    for ( var i = 0;  i < ordArr.length ; i++ ) {
+//        if (ordArr[i]  !==  ordArr[i+1] ){
+
+//        newArr.push(ordArr[i]);
+//        }
+// gameWin:function(): {
+//     console.log("")
+// }
+// establish th  random letter
+// Function randletter(arr){
+    
+//     var letter = letters[Math.foor(Math.random() * letters.length)];
+//     return letter
+// }
+
+// this is a prompt for username but can be used for input field
+// var customerName = prompt("Please enter your name", "<name goes here>");
+
+// if (customerName!= null) {
+
+//     document.getElementById("welcome").innerHTML =
+
+//     "Hello " + customerName + "! How are you today?";
+
+// }
+// logic
+// function wins(){
+//  if x = letter{ 
+//      for ( var wins=0; wins + 1)
+//  }
+
+
+// looping and console.log the array
+// for (var i = 0; i < letters.length; i++) {
+//         console.log("I love " + letters[i]);
+//       }
+
+
+
+// var= numlosses    
+// var = numwins    
+// var = document (alphabet)
+// var = chancesleft
+// var = printguesses
+
+// var =[a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
+
+// if (input) === z; {1(i++) to wins(numwins)
+
+//     for (var i = 0 ; i < document.lenth; i++);
+</script>
+<!-- what is a win?
+ its a loop of your guesses so far and if they any match then its a win
+wins=0
+ if onkeyup === to letter then display var wins=i
+ to get multiple wins display  -->
+
+    
+     <!-- <div>  Wins:<script>document.write(win)</script>
+     </div> -->
+     <h1> Wins:<span id="wi">
+     </span></h1>
+    <!-- #of times the user has guessed the letter incorrectly -->
+     <h1> Losses:<span id="lo"> 
+     </span></h1>
+     <!-- Guesses Left: (# of guesses left. This will update) -->
+    <h1 >Guesses Left: <span id="gu"></span>
+    </h1>
+    <br>
+    
+    Enter your Guess: 
+
+    <p>Your Guesses So Far: <span id="demo"></span></p>
+    
+    <script>
+        // Functions
+
+    function reWriteStats() {
+      document.getElementById("wi").innerHTML= gamestats.wins
+      document.getElementById("lo").innerHTML= gamestats.losses
+      document.getElementById("gu").innerHTML= gamestats.attemps
+      document.getElementById("demo").innerHTML= letter
+
+        console.log("wins: " + gamestats.wins);
+        console.log("losses: " + gamestats.losses);
+        console.log("attemps:" + gamestats.attemps);
+     }
+document.onkeyup=function(event) {
+  var letter=event.key
+
+
+   
+        
+    //   if (letters.length !== 1 || letter < "a" ||  > "z") {
+        
+      // letter=
+ 
+    // ==randletter
+       if (letter === randletter) {
+        console.log("you pressed " + letter);
+        console.log("you won");
+        console.log("the rand letter is "+randletter)
+        gamestats.wins=gamestats.wins+1;
+        gamestats.attemps=gamestats.attemps-1;
+        reWriteStats();
+           }
+
+          //  else if function for is it appart fo the alphabet.
+          //  else if function for did losses get to zero.?
+      else if (her.includes(letter)) {
+        console.log("you pressed " + letter);
+        console.log("you lost. try again");
+        console.log("the correct answer is"+ randletter)
+        
+        gamestats.attemps=gamestats.attemps-1;
+        reWriteStats();
+      }
+      if (gamestats.attemps=0){
+        gamestats.losses=gamestats.losses+1;
+        alert("you loose");
+        gamestats.attemps=10;
+        reWriteStats();
+      }
+     
+      // }if (gamestats.losses=10){
+      //   gamestats
+      // }
+
+      // $("#wi").text(gamestats.wins);
+         
+    };
+
+    // var n = fruits.includes("Mango");
+    
+    
+
+
+// var letter = function myFunction().toLowerCase()
+//     console.log(letter);
+    // var letter = event.key.toLowerCase();
+// console.log(letter);
+// If the letter is h, run the following functions/methods.
+// if (letter === "h") {
+//   car.honk();
+//   reWriteStats();
+// }
+
+// // If the letter is d, run the following functions/methods.
+// if (letter === "d") {
+//   car.driveToWork();
+//   reWriteStats();
+// }
+
+// // If the letter is w, run the following functions/methods.
+// if (letter === "w") {
+//   car.driveAroundWorld();
+//   reWriteStats();
+// }
+
+// // If the letter is t, run the following functions/methods.
+// if (letter === "t") {
+//   car.getTuneUp();
+//   reWriteStats();
+// }
+</script>
+
+
+
+</body>
+</html>
