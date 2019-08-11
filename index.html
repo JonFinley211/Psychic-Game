@@ -40,16 +40,7 @@ var randletter = her[Math.floor(Math.random() * her.length)];
     
     
 console.log(randletter);
-// for (var i = 0; i < letters.length; i++) {
-//         console.log("I love " + letters[i]);}
-        
-//    for ( var i = 0;  i < ordArr.length ; i++ ) {
-//        if (ordArr[i]  !==  ordArr[i+1] ){
 
-//        newArr.push(ordArr[i]);
-//        }
-// gameWin:function(): {
-//     console.log("")
 // }
 // establish th  random letter
 // Function randletter(arr){
@@ -113,69 +104,89 @@ wins=0
     </h1>
     <br>
     
-    Enter your Guess: 
+    Enter your Guess: <span id="sofar"></span>
 
     <p>Your Guesses So Far: <span id="demo"></span></p>
     
     <script>
         // Functions
+    //     function looser()
+    // gamestatsl.losses=gamestats.losses+1
+
+
 
     function reWriteStats() {
       document.getElementById("wi").innerHTML= gamestats.wins
       document.getElementById("lo").innerHTML= gamestats.losses
       document.getElementById("gu").innerHTML= gamestats.attemps
-      document.getElementById("demo").innerHTML= letter
+     
 
-        console.log("wins: " + gamestats.wins);
-        console.log("losses: " + gamestats.losses);
-        console.log("attemps:" + gamestats.attemps);
+        // console.log("wins: " + gamestats.wins);
+        // console.log("losses: " + gamestats.losses);
+        // console.log("attemps:" + gamestats.attemps);
      }
 document.onkeyup=function(event) {
-  var letter=event.key
+  var letter=event.key;
+  
 
 
-   
+  
         
     //   if (letters.length !== 1 || letter < "a" ||  > "z") {
         
       // letter=
  
     // ==randletter
+    if (gamestats.attemps==0){
+      gamestats.losses=gamestats.losses+1;
+      gamestats.attemps=gamestats.attemps+10;
+      alert("correct answer is " + letter);
+      reWriteStats();
+       
+    }
        if (letter === randletter) {
         console.log("you pressed " + letter);
-        console.log("you won");
+        alert("you won");
         console.log("the rand letter is "+randletter)
         gamestats.wins=gamestats.wins+1;
         gamestats.attemps=gamestats.attemps-1;
+        
+
         reWriteStats();
            }
 
           //  else if function for is it appart fo the alphabet.
           //  else if function for did losses get to zero.?
       else if (her.includes(letter)) {
+        alert("try again");
         console.log("you pressed " + letter);
-        console.log("you lost. try again");
-        console.log("the correct answer is"+ randletter)
+       
         
         gamestats.attemps=gamestats.attemps-1;
+        document.getElementById("sofar").innerHTML= letter
+        document.getElementById("demo").innerHTML= letter
+
         reWriteStats();
       }
-      if (gamestats.attemps=0){
-        gamestats.losses=gamestats.losses+1;
-        alert("you loose");
-        gamestats.attemps=10;
+      // if (gamestats.attemps=0){
+      //   gamestats.losses=gamestats.losses+1;
+      //   alert("you loose");
         reWriteStats();
-      }
+      
      
       // }if (gamestats.losses=10){
       //   gamestats
       // }
 
       // $("#wi").text(gamestats.wins);
-         
-    };
+      // $("#first-number").text(firstNumber);
+}  
+    
+    
+    // document.getElementById("sofar").innerHTML= letter
+    
 
-    // var n = fruits.includes("Mango");
+   
     
     
 
@@ -190,23 +201,7 @@ document.onkeyup=function(event) {
 //   reWriteStats();
 // }
 
-// // If the letter is d, run the following functions/methods.
-// if (letter === "d") {
-//   car.driveToWork();
-//   reWriteStats();
-// }
 
-// // If the letter is w, run the following functions/methods.
-// if (letter === "w") {
-//   car.driveAroundWorld();
-//   reWriteStats();
-// }
-
-// // If the letter is t, run the following functions/methods.
-// if (letter === "t") {
-//   car.getTuneUp();
-//   reWriteStats();
-// }
 </script>
 
 
